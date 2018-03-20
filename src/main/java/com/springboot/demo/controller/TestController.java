@@ -1,4 +1,4 @@
-package com.springboot.demo;
+package com.springboot.demo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,5 +17,11 @@ public class TestController {
     @ResponseBody
     public String hello(){
         return "Hello springboot";
+    }
+
+    @RequestMapping("/exception")
+    @ResponseBody
+    public String exception() throws Exception{
+        throw new Exception("error");
     }
 }
