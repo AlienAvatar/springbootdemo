@@ -17,21 +17,13 @@ SpringBoot是对SpringMVC的进一层封装，自动化部署，简化了配置
 
 在static下面放置图片，访问http://localhost:8080/test.jpg,页面上会显示图片
 
-##渲染Web页面
+## 渲染Web页面
 
 Spring Boot提供了默认配置的模板引擎主要有以下几种：
 
-Thymeleaf
+Thymeleaf FreeMarker Velocity Groovy Mustache
 
-FreeMarker
-
-Velocity
-
-Groovy
-
-Mustache
-
-##注解
+## 注解
 
 @RestController
 
@@ -45,7 +37,7 @@ springboot中控制器注解@RestController 等于原springmvc @Controller+@Resp
 
 ## 统一异常处理
 
-## 通过Swagger2
+## Swagger2
 
 1.注入依赖
 pom.xml
@@ -68,11 +60,11 @@ pom.xml
 
 @EnableSwagger2 注解来启用Swagger2
 
-select()函数会返回个ApiSelectorBulider控制哪些接口暴露给Swagger
-
 @ApiOperation 增加API说明
 
 通过 @ApiImplicitParams、 @ApiImplicitParam 增加参数说明
+
+select()函数会返回个ApiSelectorBulider控制哪些接口暴露给Swagger
 
 地址：http://localhost:8088/swagger-ui.html
 
@@ -81,10 +73,19 @@ Swagger官方网站：http://swagger.io/
 
 ## springboot 发送邮件
 1.maven 依赖
+
 <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
-</dependency>
+		</dependency>
+		<dependency>
+			<groupId>ort.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-velocity</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-freemarker</artifactId>
+		</dependency>
 
 2.添加配置
 
