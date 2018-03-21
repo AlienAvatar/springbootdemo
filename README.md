@@ -101,6 +101,17 @@ springboot-starter 模块提供自动化配置，引入依赖后，会根据配�
 新版本中发送模板邮件不支持velocity
 使用FreeMarker
 
+## 自定义属性与加载
 
+@Value("${属性名}")
+
+## 多环境配置
+
+application-dev.properties: 开发环境
+application-test.properties: 测试环境
+application-prod.properties:生产环境
+
+#默认以dev环境设置
+spring.profiles.active=dev
 
 
