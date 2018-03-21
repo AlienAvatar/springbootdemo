@@ -15,7 +15,7 @@ SpringBoot是对SpringMVC的进一层封装，自动化部署，简化了配置
 
 如图所示
 
-在static下面放置图片，访问http://localhost:8080/test.jpg,页面上会显示图片
+在static下面放置图片，访问http://localhost:8080/test.jpg  页面上会显示图片
 
 ## 渲染Web页面
 
@@ -117,6 +117,8 @@ spring.profiles.active=dev
 ## SpringBoot 应有主要运行方式
 
 (1) 运行Springboot运行主类
-(2) 使用Maven的Springboot插件 'mvn spring-boot:run'来运行
+(2) 到项目所在目录，使用Maven的Springboot插件 'mvn spring-boot:run'来运行
 (3) 打成jar包，使用'java -jar'运行
 
+mvn install 打成jar包
+jar包的位置 D:\java-project\springbootdemo\target
