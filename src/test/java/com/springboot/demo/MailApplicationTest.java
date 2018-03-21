@@ -22,50 +22,58 @@ import java.util.Map;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class MailApplicationTest {
-    @Autowired
-    private JavaMailSender mailSender;
 
-    @Autowired
-    Configuration configuration;
-
-    //简单邮件测试
+    /**
+     * Maven 打包会扫描该Test，需要注解，而且必须有个一个方法
+     */
     @Test
-    public void sendMailTest() throws Exception{
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("dxf767808421@163.com");
-        message.setTo("dxf767808421@163.com");
-        message.setSubject("Test Mail");
-        message.setText("Test Hello springboot-mail");
-        mailSender.send(message);
+    public void mavenJar() {
+        System.out.println("Hello Maven");
     }
-
-    //带附件邮件测试
-    @Test
-    public void sendAttachmentMail() throws Exception{
-        MimeMessage mailMessage = mailSender.createMimeMessage();
-        MimeMessageHelper helper = new MimeMessageHelper(mailMessage,true);
-        helper.setFrom("dxf767808421@163.com");
-        helper.setTo("dxf767808421@163.com");
-        helper.setSubject("Test Attachment");
-        helper.setText("Test Hello",true);
-        FileSystemResource file = new FileSystemResource("C:\\Users\\Avatar\\Pictures\\mailtest.jpg");
-        helper.addInline("test",file);
-        mailSender.send(mailMessage);
-    }
-
-    //模板邮件测试
-    @Test
-    public void sendTemplateMail() throws Exception{
-        MimeMessage mimeMessage = mailSender.createMimeMessage();
-        MimeMessageHelper helper = new MimeMessageHelper(mimeMessage,true);
-        helper.setFrom("dxf767808421@163.com");
-        helper.setTo("dxf767808421@163.com");
-        helper.setSubject("Test Template");
-        Map<String,Object> map = new HashMap<>();
-        map.put("username","alien");
-        Template t = configuration.getTemplate("test.ftl"); // freeMarker template
-        String text = FreeMarkerTemplateUtils.processTemplateIntoString(t,map);
-        helper.setText("Test Hello TemplateMail" + text,true);
-        mailSender.send(mimeMessage);
-    }
+//    @Autowired
+//    private JavaMailSender mailSender;
+//
+//    @Autowired
+//    Configuration configuration;
+//
+//    //简单邮件测试
+//    @Test
+//    public void sendMailTest() throws Exception{
+//        SimpleMailMessage message = new SimpleMailMessage();
+//        message.setFrom("dxf767808421@163.com");
+//        message.setTo("dxf767808421@163.com");
+//        message.setSubject("Test Mail");
+//        message.setText("Test Hello springboot-mail");
+//        mailSender.send(message);
+//    }
+//
+//    //带附件邮件测试
+//    @Test
+//    public void sendAttachmentMail() throws Exception{
+//        MimeMessage mailMessage = mailSender.createMimeMessage();
+//        MimeMessageHelper helper = new MimeMessageHelper(mailMessage,true);
+//        helper.setFrom("dxf767808421@163.com");
+//        helper.setTo("dxf767808421@163.com");
+//        helper.setSubject("Test Attachment");
+//        helper.setText("Test Hello",true);
+//        FileSystemResource file = new FileSystemResource("C:\\Users\\Avatar\\Pictures\\mailtest.jpg");
+//        helper.addInline("test",file);
+//        mailSender.send(mailMessage);
+//    }
+//
+//    //模板邮件测试
+//    @Test
+//    public void sendTemplateMail() throws Exception{
+//        MimeMessage mimeMessage = mailSender.createMimeMessage();
+//        MimeMessageHelper helper = new MimeMessageHelper(mimeMessage,true);
+//        helper.setFrom("dxf767808421@163.com");
+//        helper.setTo("dxf767808421@163.com");
+//        helper.setSubject("Test Template");
+//        Map<String,Object> map = new HashMap<>();
+//        map.put("username","alien");
+//        Template t = configuration.getTemplate("test.ftl"); // freeMarker template
+//        String text = FreeMarkerTemplateUtils.processTemplateIntoString(t,map);
+//        helper.setText("Test Hello TemplateMail" + text,true);
+//        mailSender.send(mimeMessage);
+//    }
 }
