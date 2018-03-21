@@ -114,4 +114,9 @@ application-prod.properties:生产环境
 #默认以dev环境设置
 spring.profiles.active=dev
 
+## SpringBoot 应有主要运行方式
+
+(1) 运行Springboot运行主类
+(2) 使用Maven的Springboot插件 'mvn spring-boot:run'来运行
+(3) 打成jar包，使用'java -jar'运行
 
